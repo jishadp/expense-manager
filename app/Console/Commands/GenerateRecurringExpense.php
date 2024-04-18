@@ -27,8 +27,8 @@ class GenerateRecurringExpense extends Command
      */
     public function handle(): void
     {
-        $month = '04';
-        $year = 2024;
+        $month = $this->ask('Which Month Eg: 04 ?');
+        $year = $this->ask('Which Year ?');
 
         Expense::whereMonth('date',$month)->whereYear('date',$year)->delete();
 
@@ -38,12 +38,6 @@ class GenerateRecurringExpense extends Command
             'liability_id' => 15,
             'amount'  =>2005,
         ]);
-        Expense::create([
-            'title'   =>'FOOD EXPENSE',
-            'date'  =>date($year."-".$month."-01"),
-            'amount'  =>9500,
-        ]);
-
 
         Expense::create([
             'title'   =>'SIP',
@@ -69,34 +63,10 @@ class GenerateRecurringExpense extends Command
         ]);
 
         Expense::create([
-            'title'   =>'OFFICE CAR PARKING',
-            'date'  =>date($year."-".$month."-01"),
-            'amount'  =>750,
-        ]);
-
-        Expense::create([
-            'title'   =>'CRED LOAN ARUN',
-            'date'  =>date($year."-".$month."-01"),
-            'liability_id' => 10,
-            'amount'  =>4304,
-        ]);
-
-        Expense::create([
-            'title'   =>'ARUN CASHBACK RECURRING',
-            'date'  =>date($year."-".$month."-01"),
-            'amount'  =>5000,
-        ]);
-
-        Expense::create([
             'title'   =>'CAR LOAN',
             'date'  =>date($year."-".$month."-01"),
             'liability_id' => 2,
             'amount'  =>17600,
-        ]);
-        Expense::create([
-            'title'   =>'JAMSHINA KURI',
-            'date'  =>date($year."-".$month."-01"),
-            'amount'  =>1000,
         ]);
 
         Expense::create([
@@ -136,11 +106,6 @@ class GenerateRecurringExpense extends Command
             'amount'  =>5000,
         ]);
 
-        Expense::create([
-            'title'   =>'DIESEL',
-            'date'  =>date($year."-".$month."-01"),
-            'amount'  =>3300,
-        ]);
         Expense::create([
             'title'   =>'DIESEL',
             'date'  =>date($year."-".$month."-01"),

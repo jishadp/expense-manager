@@ -26,8 +26,9 @@ class CreditSalaryEveryMonth extends Command
      */
     public function handle(): void
     {
-        $month = '04';
-        $year = 2024;
+        $month = $this->ask('Which Month Eg: 04 ?');
+        $year = $this->ask('Which Year ?');
+
         Income::create([
             'how'   =>'Salary Credited from IOCOD',
             'date'  =>date($year."-".$month."-05"),
