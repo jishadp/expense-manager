@@ -27,28 +27,21 @@ class GenerateRecurringExpense extends Command
      */
     public function handle(): void
     {
-        $month = $this->ask('Which Month Eg: 04 ?');
-        $year = $this->ask('Which Year ?');
+        $month = date('m');
+        $year = date('Y');
 
         Expense::whereMonth('date',$month)->whereYear('date',$year)->delete();
 
         Expense::create([
-            'title'   =>'ICICI PERSONAL LOAN',
-            'date'  =>date($year."-".$month."-01"),
-            'liability_id' => 15,
-            'amount'  =>2005,
-        ]);
-
-        Expense::create([
             'title'   =>'SIP',
             'date'  =>date($year."-".$month."-01"),
-            'amount'  =>5670,
+            'amount'  =>10000,
         ]);
 
         Expense::create([
-            'title'   =>'OFFICE KURI',
+            'title'   =>'JAMSHINA KURI',
             'date'  =>date($year."-".$month."-01"),
-            'amount'  =>10000,
+            'amount'  =>16000,
         ]);
 
         Expense::create([
@@ -56,12 +49,6 @@ class GenerateRecurringExpense extends Command
             'date'  =>date($year."-".$month."-01"),
             'amount'  =>200,
         ]);
-        Expense::create([
-            'title'   =>'IPHONE EMI',
-            'date'  =>date($year."-".$month."-01"),
-            'amount'  =>7114,
-        ]);
-
         Expense::create([
             'title'   =>'CAR LOAN',
             'date'  =>date($year."-".$month."-01"),

@@ -12,7 +12,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:credit-salary-every-month')->monthlyOn(5);
         $schedule->command('app:generate-recurring-expense')->monthlyOn(1);
     }
 
